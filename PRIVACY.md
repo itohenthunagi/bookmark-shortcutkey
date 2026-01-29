@@ -8,7 +8,7 @@ Last updated: January 29, 2026
 ## English
 
 ### Overview
-Bookmarks Shortcut ("the Extension") respects your privacy. This privacy policy explains what data we collect, how we use it, and how we protect it.
+Bookmark Shortcutkey ("the Extension") respects your privacy. This privacy policy explains what data we collect, how we use it, and how we protect it.
 
 ### Data Collection
 The Extension collects and stores the following data **locally on your device**:

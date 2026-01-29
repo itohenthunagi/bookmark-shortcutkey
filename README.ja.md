@@ -1,6 +1,6 @@
-# ShortcutKey2URL for Chrome
+# ブクマショートカット (Bookmark Shortcutkey)
 
-ShortcutKey2URL for Chromeは、ショートカットキーを使用してURLを開いたり、移動したり、JavaScriptを実行できるGoogle Chrome向け拡張機能です。
+ブクマショートカットは、ショートカットキーを使用してURLを開いたり、移動したり、JavaScriptを実行できるChrome拡張機能です。
 
 スタートアップキーであらかじめ設定しておいた動作の一覧を表示し、次のキーでその動作を実行します。  
 スタートアップキーは、デフォルトの状態ではCtrl+.(ピリオド)です。このキーは後から変更できます。(Macでは、Command+,(カンマ))

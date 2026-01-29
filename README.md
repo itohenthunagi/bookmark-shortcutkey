@@ -1,6 +1,6 @@
-# ShortcutKey2URL for Chrome
+# Bookmark Shortcutkey
 
-ShortcutKey2URL for Chrome is an extension for Google Chrome that allows you to open, and move url using shortcut keys. You can also run JavaScript.
+Bookmark Shortcutkey is a Chrome extension that allows you to quickly access your favorite sites using keyboard shortcuts. You can also run JavaScript.
 
 Display the action list with the startup key and execute the action with the next key.  
 The startup key default is Ctrl+Period(on mac, Command+Comma). You can change this key later. 
