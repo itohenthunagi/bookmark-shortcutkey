@@ -1,196 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Bookmarks Shortcut</title>
+    <title>プライバシーポリシー - ブクマショートカット</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- OGP Meta Tags -->
+    <meta property="og:title" content="プライバシーポリシー - ブクマショートカット">
+    <meta property="og:description" content="ブクマショートカットのプライバシーポリシー。すべてのデータはローカル保存され、外部サーバーへの送信は一切ありません。">
+    <meta property="og:image" content="https://itohenthunagi.github.io/bookmark-shortcutkey/assets/images/og-image.png">
+    <meta property="og:url" content="https://itohenthunagi.github.io/bookmark-shortcutkey/PRIVACY.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="プライバシーポリシー - ブクマショートカット">
+    <meta name="twitter:description" content="ブクマショートカットのプライバシーポリシー。すべてのデータはローカル保存され、外部サーバーへの送信は一切ありません。">
+    <meta name="twitter:image" content="https://itohenthunagi.github.io/bookmark-shortcutkey/assets/images/og-image.png">
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
+            font-family: 'Segoe UI', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.8;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
             color: #333;
+            background: #f9fafb;
         }
-        h1 {
-            color: #2563eb;
-            border-bottom: 2px solid #2563eb;
-            padding-bottom: 10px;
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            border-radius: 12px;
+            margin-bottom: 40px;
+            color: white;
         }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .language-toggle {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .language-toggle button {
+            background: white;
+            border: 2px solid #e5e7eb;
+            padding: 10px 24px;
+            margin: 0 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95em;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .language-toggle button:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+
+        .language-toggle button.active {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            color: white;
+        }
+
+        .content {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .language-section {
+            display: none;
+        }
+
+        .language-section.active {
+            display: block;
+        }
+
         h2 {
             color: #1e40af;
-            margin-top: 30px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 10px;
         }
+
         h3 {
             color: #1e3a8a;
-            margin-top: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.3em;
         }
-        .language-section {
-            margin-bottom: 60px;
+
+        p {
+            margin: 15px 0;
         }
-        ul {
-            padding-left: 20px;
+
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
         }
+
         li {
-            margin: 8px 0;
+            margin: 10px 0;
         }
+
         .highlight {
             background-color: #fef3c7;
-            padding: 2px 6px;
-            border-radius: 3px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
         }
+
         code {
             background-color: #f3f4f6;
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-family: 'Courier New', Courier, monospace;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
         }
+
         .last-updated {
+            text-align: center;
             color: #6b7280;
             font-style: italic;
+            margin-bottom: 20px;
         }
+
         a {
             color: #2563eb;
             text-decoration: none;
+            font-weight: 500;
         }
+
         a:hover {
             text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: #6b7280;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Privacy Policy / プライバシーポリシー</h1>
-    <p class="last-updated">Last updated: January 29, 2026 / 最終更新: 2026年1月29日</p>
-
-    <hr>
-
-    <div class="language-section">
-        <h2>English</h2>
-
-        <h3>Overview</h3>
-        <p>Bookmarks Shortcut ("the Extension") respects your privacy. This privacy policy explains what data we collect, how we use it, and how we protect it.</p>
-
-        <h3>Data Collection</h3>
-        <p>The Extension collects and stores the following data <span class="highlight">locally on your device</span>:</p>
-        <ul>
-            <li>Shortcut key configurations (keys, URLs, titles, tags, aliases)</li>
-            <li>Action settings (how shortcuts behave)</li>
-            <li>Custom JavaScript scripts (if you choose to create them)</li>
-            <li>Extension preferences (column count, filter position, etc.)</li>
-        </ul>
-
-        <h3>Data Storage</h3>
-        <p>All data is stored in one of two locations:</p>
-        <ol>
-            <li><strong>Local Storage</strong>: Data stored only on your current device</li>
-            <li><strong>Chrome Sync Storage</strong>: Data synchronized across your Chrome browsers (only if Chrome sync is enabled)</li>
-        </ol>
-        <p><strong>Important</strong>: All data remains within your Chrome browser ecosystem. We do not operate any external servers or databases.</p>
-
-        <h3>Data Usage</h3>
-        <p>Your data is used exclusively for:</p>
-        <ul>
-            <li>Executing shortcut key actions</li>
-            <li>Displaying your bookmarks and shortcuts in the popup</li>
-            <li>Providing search functionality</li>
-            <li>Synchronizing settings across your devices (if Chrome sync is enabled)</li>
-        </ul>
-
-        <h3>Data Sharing</h3>
-        <p><span class="highlight">We do not share, sell, or transmit your data to any third parties.</span></p>
-        <ul>
-            <li>No data is sent to external servers</li>
-            <li>No analytics or tracking services are used</li>
-            <li>No personal information is collected beyond what you explicitly configure</li>
-        </ul>
-
-        <h3>Permissions Explanation</h3>
-        <p>The Extension requires the following permissions:</p>
-        <ul>
-            <li><code>tabs</code>: To manage and switch between browser tabs</li>
-            <li><code>storage</code>: To save your shortcut configurations locally and in Chrome sync</li>
-            <li><code>contextMenus</code>: To add "Add to Bookmarks Shortcut" to right-click menu</li>
-            <li><code>userScripts</code>: To execute custom JavaScript scripts you create</li>
-            <li><code>host_permissions: &lt;all_urls&gt;</code>: To access URLs you specify and execute scripts on those pages</li>
-        </ul>
-        <p>These permissions are used <strong>only</strong> for the functionality described above and never for data collection or tracking.</p>
-
-        <h3>Open Source</h3>
-        <p>The Extension is open source. You can review the complete source code at:<br>
-        <a href="https://github.com/itohenthunagi/bookmark-shortcutkey" target="_blank">https://github.com/itohenthunagi/bookmark-shortcutkey</a></p>
-
-        <h3>Changes to This Policy</h3>
-        <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last updated" date.</p>
-
-        <h3>Contact</h3>
-        <p>For questions or concerns about this privacy policy, please open an issue on our GitHub repository:<br>
-        <a href="https://github.com/itohenthunagi/bookmark-shortcutkey/issues" target="_blank">https://github.com/itohenthunagi/bookmark-shortcutkey/issues</a></p>
+    <div class="header">
+        <img src="assets/images/logo.png" alt="ブクマショートカット" class="logo">
+        <h1>プライバシーポリシー</h1>
+        <div class="subtitle">Privacy Policy</div>
     </div>
 
-    <hr>
-
-    <div class="language-section">
-        <h2>日本語</h2>
-
-        <h3>概要</h3>
-        <p>ブクマショートカット（以下「本拡張機能」）は、ユーザーのプライバシーを尊重します。このプライバシーポリシーでは、収集するデータ、その使用方法、保護方法について説明します。</p>
-
-        <h3>データ収集</h3>
-        <p>本拡張機能は、以下のデータを<span class="highlight">お使いのデバイス上にローカルで</span>収集・保存します：</p>
-        <ul>
-            <li>ショートカットキーの設定（キー、URL、タイトル、タグ、エイリアス）</li>
-            <li>アクション設定（ショートカットの動作方法）</li>
-            <li>カスタムJavaScriptスクリプト（作成した場合）</li>
-            <li>拡張機能の設定（列数、フィルター位置など）</li>
-        </ul>
-
-        <h3>データの保存場所</h3>
-        <p>すべてのデータは以下のいずれかに保存されます：</p>
-        <ol>
-            <li><strong>ローカルストレージ</strong>: 現在のデバイスにのみ保存されるデータ</li>
-            <li><strong>Chrome同期ストレージ</strong>: Chromeブラウザ間で同期されるデータ（Chrome同期が有効な場合のみ）</li>
-        </ol>
-        <p><strong>重要</strong>: すべてのデータはChromeブラウザのエコシステム内に留まります。外部サーバーやデータベースは一切運用していません。</p>
-
-        <h3>データの使用目的</h3>
-        <p>収集したデータは以下の目的でのみ使用されます：</p>
-        <ul>
-            <li>ショートカットキーアクションの実行</li>
-            <li>ポップアップでのブックマークとショートカットの表示</li>
-            <li>検索機能の提供</li>
-            <li>デバイス間での設定の同期（Chrome同期が有効な場合）</li>
-        </ul>
-
-        <h3>データの共有</h3>
-        <p><span class="highlight">第三者とのデータ共有、販売、送信は一切行いません。</span></p>
-        <ul>
-            <li>外部サーバーへのデータ送信なし</li>
-            <li>アナリティクスやトラッキングサービスの使用なし</li>
-            <li>ユーザーが明示的に設定した内容以外の個人情報収集なし</li>
-        </ul>
-
-        <h3>権限の説明</h3>
-        <p>本拡張機能は以下の権限を必要とします：</p>
-        <ul>
-            <li><code>tabs</code>: ブラウザのタブを管理・切り替えるため</li>
-            <li><code>storage</code>: ショートカット設定をローカルおよびChrome同期ストレージに保存するため</li>
-            <li><code>contextMenus</code>: 右クリックメニューに「ブクマショートカットに追加」を表示するため</li>
-            <li><code>userScripts</code>: 作成したカスタムJavaScriptスクリプトを実行するため</li>
-            <li><code>host_permissions: &lt;all_urls&gt;</code>: 指定したURLにアクセスし、それらのページでスクリプトを実行するため</li>
-        </ul>
-        <p>これらの権限は上記の機能実現<strong>のみ</strong>に使用され、データ収集やトラッキングには一切使用されません。</p>
-
-        <h3>オープンソース</h3>
-        <p>本拡張機能はオープンソースです。完全なソースコードは以下で確認できます：<br>
-        <a href="https://github.com/itohenthunagi/bookmark-shortcutkey" target="_blank">https://github.com/itohenthunagi/bookmark-shortcutkey</a></p>
-
-        <h3>ポリシーの変更</h3>
-        <p>このプライバシーポリシーは随時更新される可能性があります。変更があった場合は、このページに更新日とともに掲載されます。</p>
-
-        <h3>お問い合わせ</h3>
-        <p>このプライバシーポリシーに関する質問や懸念がある場合は、GitHubリポジトリでIssueを作成してください：<br>
-        <a href="https://github.com/itohenthunagi/bookmark-shortcutkey/issues" target="_blank">https://github.com/itohenthunagi/bookmark-shortcutkey/issues</a></p>
+    <div class="language-toggle">
+        <button onclick="switchLanguage('ja')" id="btn-ja" class="active">🇯🇵 日本語</button>
+        <button onclick="switchLanguage('en')" id="btn-en">🇬🇧 English</button>
     </div>
+
+    <div class="content">
+        <p class="last-updated">最終更新: 2026年1月29日 / Last updated: January 29, 2026</p>
+
+        <!-- 日本語版 -->
+        <div class="language-section active" id="section-ja">
+            <h2>概要</h2>
+            <p>ブクマショートカット（以下「本拡張機能」）は、ユーザーのプライバシーを尊重します。このプライバシーポリシーでは、収集するデータ、その使用方法、保護方法について説明します。</p>
+
+            <h3>データ収集</h3>
+            <p>本拡張機能は、以下のデータを<span class="highlight">お使いのデバイス上にローカルで</span>収集・保存します：</p>
+            <ul>
+                <li>ショートカットキーの設定（キー、URL、タイトル、タグ、エイリアス）</li>
+                <li>アクション設定（ショートカットの動作方法）</li>
+                <li>カスタムJavaScriptスクリプト（作成した場合）</li>
+                <li>拡張機能の設定（列数、フィルター位置など）</li>
+            </ul>
+
+            <h3>データの保存場所</h3>
+            <p>すべてのデータは以下のいずれかに保存されます：</p>
+            <ol>
+                <li><strong>ローカルストレージ</strong>: 現在のデバイスにのみ保存されるデータ</li>
+                <li><strong>Chrome同期ストレージ</strong>: Chromeブラウザ間で同期されるデータ（Chrome同期が有効な場合のみ）</li>
+            </ol>
+            <p><strong>重要</strong>: すべてのデータはChromeブラウザのエコシステム内に留まります。外部サーバーやデータベースは一切運用していません。</p>
+
+            <h3>データの使用目的</h3>
+            <p>収集したデータは以下の目的でのみ使用されます：</p>
+            <ul>
+                <li>ショートカットキーアクションの実行</li>
+                <li>ポップアップでのブックマークとショートカットの表示</li>
+                <li>検索機能の提供</li>
+                <li>デバイス間での設定の同期（Chrome同期が有効な場合）</li>
+            </ul>
+
+            <h3>データの共有</h3>
+            <p><span class="highlight">第三者とのデータ共有、販売、送信は一切行いません。</span></p>
+            <ul>
+                <li>外部サーバーへのデータ送信なし</li>
+                <li>アナリティクスやトラッキングサービスの使用なし</li>
+                <li>ユーザーが明示的に設定した内容以外の個人情報収集なし</li>
+            </ul>
+
+            <h3>権限の説明</h3>
+            <p>本拡張機能は以下の権限を必要とします：</p>
+            <ul>
+                <li><code>tabs</code>: ブラウザのタブを管理・切り替えるため</li>
+                <li><code>storage</code>: ショートカット設定をローカルおよびChrome同期ストレージに保存するため</li>
+                <li><code>contextMenus</code>: 右クリックメニューに「ブクマショートカットに追加」を表示するため</li>
+                <li><code>userScripts</code>: 作成したカスタムJavaScriptスクリプトを実行するため</li>
+                <li><code>host_permissions: &lt;all_urls&gt;</code>: 指定したURLにアクセスし、それらのページでスクリプトを実行するため</li>
+            </ul>
+            <p>これらの権限は上記の機能実現<strong>のみ</strong>に使用され、データ収集やトラッキングには一切使用されません。</p>
+
+            <h3>オープンソース</h3>
+            <p>本拡張機能はオープンソースです。完全なソースコードは以下で確認できます：<br>
+            <a href="https://github.com/itohenthunagi/bookmark-shortcutkey" target="_blank">https://github.com/itohenthunagi/bookmark-shortcutkey</a></p>
+
+            <h3>ポリシーの変更</h3>
+            <p>このプライバシーポリシーは随時更新される可能性があります。変更があった場合は、このページに更新日とともに掲載されます。</p>
+
+            <h3>お問い合わせ</h3>
+            <p>このプライバシーポリシーに関する質問や懸念がある場合は、GitHubリポジトリでIssueを作成してください：<br>
+            <a href="https://github.com/itohenthunagi/bookmark-shortcutkey/issues" target="_blank">https://github.com/itohenthunagi/bookmark-shortcutkey/issues</a></p>
+        </div>
+
+        <!-- English版 -->
+        <div class="language-section" id="section-en">
+            <h2>Overview</h2>
+            <p>Bookmarks Shortcut ("the Extension") respects your privacy. This privacy policy explains what data we collect, how we use it, and how we protect it.</p>
+
+            <h3>Data Collection</h3>
+            <p>The Extension collects and stores the following data <span class="highlight">locally on your device</span>:</p>
+            <ul>
+                <li>Shortcut key configurations (keys, URLs, titles, tags, aliases)</li>
+                <li>Action settings (how shortcuts behave)</li>
+                <li>Custom JavaScript scripts (if you choose to create them)</li>
+                <li>Extension preferences (column count, filter position, etc.)</li>
+            </ul>
+
+            <h3>Data Storage</h3>
+            <p>All data is stored in one of two locations:</p>
+            <ol>
+                <li><strong>Local Storage</strong>: Data stored only on your current device</li>
+                <li><strong>Chrome Sync Storage</strong>: Data synchronized across your Chrome browsers (only if Chrome sync is enabled)</li>
+            </ol>
+            <p><strong>Important</strong>: All data remains within your Chrome browser ecosystem. We do not operate any external servers or databases.</p>
+
+            <h3>Data Usage</h3>
+            <p>Your data is used exclusively for:</p>
+            <ul>
+                <li>Executing shortcut key actions</li>
+                <li>Displaying your bookmarks and shortcuts in the popup</li>
+                <li>Providing search functionality</li>
+                <li>Synchronizing settings across your devices (if Chrome sync is enabled)</li>
+            </ul>
+
+            <h3>Data Sharing</h3>
+            <p><span class="highlight">We do not share, sell, or transmit your data to any third parties.</span></p>
+            <ul>
+                <li>No data is sent to external servers</li>
+                <li>No analytics or tracking services are used</li>
+                <li>No personal information is collected beyond what you explicitly configure</li>
+            </ul>
+
+            <h3>Permissions Explanation</h3>
+            <p>The Extension requires the following permissions:</p>
+            <ul>
+                <li><code>tabs</code>: To manage and switch between browser tabs</li>
+                <li><code>storage</code>: To save your shortcut configurations locally and in Chrome sync</li>
+                <li><code>contextMenus</code>: To add "Add to Bookmarks Shortcut" to right-click menu</li>
+                <li><code>userScripts</code>: To execute custom JavaScript scripts you create</li>
+                <li><code>host_permissions: &lt;all_urls&gt;</code>: To access URLs you specify and execute scripts on those pages</li>
+            </ul>
+            <p>These permissions are used <strong>only</strong> for the functionality described above and never for data collection or tracking.</p>
+
+            <h3>Open Source</h3>
+            <p>The Extension is open source. You can review the complete source code at:<br>
+            <a href="https://github.com/itohenthunagi/bookmark-shortcutkey" target="_blank">https://github.com/itohenthunagi/bookmark-shortcutkey</a></p>
+
+            <h3>Changes to This Policy</h3>
+            <p>We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last updated" date.</p>
+
+            <h3>Contact</h3>
+            <p>For questions or concerns about this privacy policy, please open an issue on our GitHub repository:<br>
+            <a href="https://github.com/itohenthunagi/bookmark-shortcutkey/issues" target="_blank">https://github.com/itohenthunagi/bookmark-shortcutkey/issues</a></p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 ブクマショートカット / Bookmarks Shortcut</p>
+        <p><a href="https://github.com/itohenthunagi/bookmark-shortcutkey" target="_blank">GitHub</a></p>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            // セクションの切り替え
+            document.getElementById('section-ja').classList.remove('active');
+            document.getElementById('section-en').classList.remove('active');
+            document.getElementById('section-' + lang).classList.add('active');
+
+            // ボタンの切り替え
+            document.getElementById('btn-ja').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+
+            // ページタイトルの変更
+            if (lang === 'ja') {
+                document.title = 'プライバシーポリシー - ブクマショートカット';
+            } else {
+                document.title = 'Privacy Policy - Bookmarks Shortcut';
+            }
+        }
+    </script>
 </body>
 </html>
