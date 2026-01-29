@@ -1,111 +1,185 @@
 # ブクマショートカット (Bookmark Shortcutkey)
 
-ブクマショートカットは、ショートカットキーを使用してURLを開いたり、移動したり、JavaScriptを実行できるChrome拡張機能です。
+キーボードショートカットでお気に入りのWebサイトに素早くアクセスできるChrome拡張機能です。**ショートカットキーモード**と**検索モード**の2つのモードを搭載。
 
-スタートアップキーであらかじめ設定しておいた動作の一覧を表示し、次のキーでその動作を実行します。  
-スタートアップキーは、デフォルトの状態ではCtrl+.(ピリオド)です。このキーは後から変更できます。(Macでは、Command+,(カンマ))
+![Version](https://img.shields.io/badge/version-1.8.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-キーとして使用できる文字は1文字に限定されません。複数文字として設定しておくことが可能です。ShrotcutKey2URLは、キーとして連続して入力された文字から、対象が1つに絞り込まれた時点でその動作を実行します。
+## ✨ 主な機能
 
-動作として設定できるものには、下記のようなものがあります。
+### 2つのアクセスモード
 
-* URLへの移動。既に開いているURLの場合は、そのタブへ移動し、開かれていない場合には、新しいタブとして開く。
-* 新規タブとしてURLを開く。
-* 現在のタブにURLを開く。
-* 現在のタブで指定したJavaScriptを実行する。
-* 新規タブとしてURLを開いて、その後に指定したJavaScriptを実行する。
-* シークレットウインドウに指定のURLを開く。
-* シークレットウインドウに現在のタブと同じURLを開く。
+#### 🎯 ショートカットキーモード（デフォルト）
+- ポップアップを開いてそのままキーを押すだけ - IME（日本語/英語入力）の状態を気にする必要なし
+- 物理キーを直接認識するため、入力方式に関係なく動作
+- 頻繁に使うサイトへの瞬時アクセスに最適
 
-**v1.8.0でScriptの設定方法が変更となりました。**
-**Chrome 135 にて、Manifest V3でも文字列によるスクリプト実行が可能になったので、v1.6.2以前のScriptにコードをそのまま設定する方法に戻しています。**
-**Scriptを設定していた方は、Scriptの再設定をお願いします。**
+#### 🔍 検索モード
+- 検索窓をクリックして検索モードに切り替え
+- 日本語・英語どちらでも検索可能
+- タイトル、URL、タグ、エイリアスで検索
 
-## プライバシーポリシー
+### 柔軟なアクション
+- **URLにジャンプ**: 既存タブに移動、なければ新規タブで開く
+- **新しいタブで開く**: 常に新しいタブで開く
+- **現在のタブで開く**: 現在のページを置き換え
+- **スクリプト実行**: カスタムJavaScriptを実行
+- **シークレットモード**: プライベートブラウジングで開く
+- **複数URLをまとめて開く**: グループで複数のURLを同時に開く
 
-この拡張機能はユーザーのプライバシーを尊重します。すべてのデータはブラウザ内にローカル保存され、外部サーバーへのデータ送信は一切行いません。
+### 整理機能
+- 🏷️ **タグ**: ショートカットをカテゴリ分け
+- 📝 **エイリアス**: 検索性を高める別名を追加
+- 🎨 **カスタマイズ可能なレイアウト**: 列数やフィルター位置を調整
+- 📦 **インポート/エクスポート**: 設定のバックアップと転送
 
-詳細は[プライバシーポリシー](https://itohenthunagi.github.io/bookmark-shortcutkey/PRIVACY.html)をご覧ください。
+## 🚀 クイックスタート
 
-## インストール
+### インストール
 
-下記からインストールします。
+1. `BookmarkShortcutkey_v1.8.0.zip` をダウンロード
+2. Chromeで `chrome://extensions/` を開く
+3. 右上の「デベロッパーモード」を有効化
+4. 「パッケージ化されていない拡張機能を読み込む」をクリックして、解凍したフォルダを選択
+5. （任意）拡張機能をツールバーにピン留め
 
-* [ShortcutKey2URL for Chrome - Chrome ウェブストア](https://chrome.google.com/webstore/detail/shortcutkey2url-for-chrom/hfohmffbfcobmhfgpkbcjjaijmfplcdg "ShortcutKey2URL for Chrome - Chrome ウェブストア")
+*Chrome ウェブストアでの公開準備中*
 
-## スタートアップキーの設定
+### 基本的な使い方
 
-スタートアップキーは、 Menu > More tools > Extensions の Keybord shortcuts から変更できます。
+1. **トリガーキーを押す**（デフォルト: `Ctrl+Period` / Macは `Command+Comma`）
+2. **モードを選択:**
+   - **ショートカットキーモード**: そのままキーを押す（例: `G` でGmail）
+   - **検索モード**: 検索窓をクリックして入力
 
-![Screenshot of change startupkey](screenshots/change_startupkey.png)
+### トリガーキーの変更
 
-## 操作方法
+1. `chrome://extensions/shortcuts` を開く
+2. 「Bookmark Shortcutkey」を見つける
+3. 好みのキーの組み合わせを設定
 
-スタートアップキーを押下すると、ポップアップにてショートカットの一覧が表示されます。
+## 📖 使い方
 
-![Screenshot of popup](screenshots/popup.png)
+### ショートカットの追加
 
-一覧にあるキーを入力すると、対応するショートカットが実行されます。
+#### 方法1: 現在のページから
+1. ブックマークしたいページを開く
+2. 拡張機能のアイコンをクリック
+3. 下部の「追加」をクリック
+4. キーを設定（例: Gmailなら `GM`）
+5. アクションを選択
+6. 保存
 
-![Screenshot of running](screenshots/run.gif)
+#### 方法2: 設定画面から
+1. 拡張機能アイコンを右クリック → 「設定」
+2. 「追加」ボタンをクリック
+3. 詳細を入力:
+   - **キー**: ショートカットキー（例: Facebookなら `FB`）
+   - **タイトル**: 表示名
+   - **URL**: WebサイトのURL
+   - **アクション**: キーを押したときの動作
+   - **タグ**（任意）: カテゴリ分け用
+   - **エイリアス**（任意）: 検索用の別名
 
-## ショートカットの設定
+#### 方法3: 右クリックメニューから
+1. 任意のページで右クリック
+2. 「ブクマショートカットに追加」を選択
 
-設定画面でショートカットキーを設定します。
+### ショートカットの使用
 
-![Screenshot of option](screenshots/option.png)
+**ショートカットキーモード:**
+```
+1. Ctrl+Period（トリガーキー）を押す
+2. ショートカットキーを押す（例: Gmailなら G）
+3. 完了！ページが瞬時に開きます
+```
 
-### Settings
+**検索モード:**
+```
+1. Ctrl+Period（トリガーキー）を押す
+2. 検索窓をクリック
+3. 検索キーワードを入力（日本語・英語どちらでもOK）
+4. Enterを押すか、結果をクリック
+```
 
-`Column count` は、ポップアップで表示するショートカットの列数を指定します。  
-左が`2`を指定した場合、右が`3`を指定した場合です。
+## ⚙️ 設定
 
-![Screenshot of column 2](screenshots/column2.png) ![Screenshot of column 3](screenshots/column3.png)
+### 一般設定
 
-`Option`の`Interactive filter of shortcut keys on the popup`をチェックすると、ポップアップで表示するショートカットをインタラクティブに絞り込むことができます。
+- **列数**: ポップアップのグリッド列数（1-5）
+- **カテゴリーフィルターの位置**: 上部、下部、左側、右側
+- **同期を無効化**: デバイス間で同期せず、ローカルに保存
 
-![Screenshot of interactive filter](screenshots/interactive.gif)
+### アクションの説明
 
-`Disable synchronization of settings`をチェックすると、設定の同期を無効化できます。  
-ブラウザの同期を行っているけれども、ショートカットキーは分けたいといった場合に有用です。
+| アクション | 説明 |
+|--------|-------------|
+| URLにジャンプ | 既存タブに移動、なければ新規タブで開く |
+| URLにジャンプ（全ウィンドウ） | 上記と同じだが、全ウィンドウを対象 |
+| 新しいタブで開く | 常に新しいタブで開く |
+| 現在のタブで開く | 現在のページを置き換え |
+| スクリプト実行 | 現在のタブでJavaScriptを実行 |
+| シークレットウィンドウで開く | プライベートブラウジングで開く |
+| 現在のタブをシークレットで開く | 現在のページをシークレットモードで開く |
+| 複数URLをまとめて開く | グループで複数のURLを同時に開く |
 
-### Shortcut Keys
+### カスタムスクリプト
 
-`Add current page`をクリックすると、現在のページをショートカットキーとして簡単に設定できます。
+URL を開いた後にカスタムJavaScriptを実行できます。例:
+```javascript
+// ボタンを自動クリック
+document.querySelector('#login-button').click();
+```
 
-![Screenshot of add current page](screenshots/add_current_page.png)
+**注意**: スクリプト機能にはChrome 135+ とManifest V3のサポートが必要です。
 
-コンテキストメニューからも追加可能です。
+## 🔒 プライバシー
 
-![Screenshot of context menu](screenshots/context_menu.png)
+- ✅ すべてのデータはブラウザ内にローカル保存
+- ✅ 外部サーバーやアナリティクスなし
+- ✅ 個人データの収集なし
+- ✅ 透明性のためのオープンソース
 
-![Screenshot of add current page setting](screenshots/add_current_page_setting.png)
+詳細は[プライバシーポリシー](https://itohenthunagi.github.io/bookmark-shortcutkey/)をご覧ください
 
-`Key`にはショートカットキーとして割り当てるキーを設定します。複数文字とすることも可能です。
-スタートアップキーを押下後、ここで設定したキーを押下することによって、ショートカットが実行されます。
+## 🛠️ 高度な機能
 
-`Hide in shortcut key list displayed in popup`にチェックを付けると、ポップアップで表示されるショートカットの一覧にて非表示とすることができます。  
-非表示となるだけで、ショートカットキーとしては有効です。
+### デバイス間での同期
 
-`Action`でショートカットキーとしての動作を指定します。  
-指定できるものは、下記の通りです。
+Chrome同期が有効な場合、設定が自動的に同期されます。デバイス固有のショートカットにしたい場合は、設定で無効化できます。
 
-* `Jump to url` URLへの移動。既に開いているURLの場合は、そのタブへ移動し、開かれていない場合には、新しいタブとして開く。
-* `Jump to url (Including other windows)` URLへの移動。`Jump to url`との違いは、対象が全てのウインドウとなることです。
-* `Open url in new tab` 新規タブとしてURLを開く。
-* `Open url in current tab` 現在のタブにURLを開く。
-* `Execute script` 現在のタブで指定したJavaScriptを実行する。
-* `Open url in incognito window` シークレットウインドウでURLを開く。
-* `Open current tab in incognito window` シークレットウインドウで現在のタブを開く。
+### インポート/エクスポート
 
-`Script (optional)`を指定することによって、URLを開いた後に任意のJavaScriptを実行することができます。
+ショートカットのバックアップや転送:
+1. 設定画面を開く
+2. 「エクスポート」をクリックしてJSONファイルをダウンロード
+3. 「インポート」をクリックしてJSONファイルから復元
 
-### 同期
+### ショートカットグループ
 
-同期に対応しているので、ショートカットキーなどの設定がPC間で共有されます。  
-ただし、同期で保存可能な容量に制限があるため、同期で保存できないサイズだった場合には、同期せずに保存します。
+関連するショートカットをグループ化:
+1. 新しいショートカットを追加
+2. 「複数URLをまとめて開く」アクションを選択
+3. 最大5つのURLを追加
+4. タブグループで開くかどうかを選択
 
-### Import / Export
+## 🤝 コントリビューション
 
-ショートカットキーの一覧は、エクスポート / インポートが可能です。  
-これによりバックアップを取ったり、移行を行うことができます。(FirefoxとChrome間での移行など)
+オープンソースプロジェクトです。貢献を歓迎します！
+
+- **GitHub**: [https://github.com/itohenthunagi/bookmark-shortcutkey](https://github.com/itohenthunagi/bookmark-shortcutkey)
+- **Issues**: [バグ報告や機能リクエスト](https://github.com/itohenthunagi/bookmark-shortcutkey/issues)
+
+## 📝 ライセンス
+
+MIT License - 詳細はLICENSEファイルを参照
+
+## 📮 サポート
+
+質問や問題がある場合:
+- GitHubで[Issueを作成](https://github.com/itohenthunagi/bookmark-shortcutkey/issues)
+- [プライバシーポリシー](https://itohenthunagi.github.io/bookmark-shortcutkey/)を確認
+
+---
+
+生産性向上を愛する人々のために ❤️

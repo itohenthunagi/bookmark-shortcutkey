@@ -1,111 +1,185 @@
 # Bookmark Shortcutkey
 
-Bookmark Shortcutkey is a Chrome extension that allows you to quickly access your favorite sites using keyboard shortcuts. You can also run JavaScript.
+A Chrome extension that lets you quickly access your favorite websites using keyboard shortcuts. Features two modes: **Shortcut Key Mode** for instant access and **Search Mode** for flexible searching.
 
-Display the action list with the startup key and execute the action with the next key.  
-The startup key default is Ctrl+Period(on mac, Command+Comma). You can change this key later. 
+![Version](https://img.shields.io/badge/version-1.8.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-Characters that can be used as keys are not limited to one character. It can be set as multiple characters. ShrotcutKey2URL executes its action from the characters entered consecutively as keys when the target is narrowed down to one.
+## ✨ Features
 
-The items that can be set as actions are as follows.
+### Two Access Modes
 
-* Jump to URL. For already opened URL, go to that tab. Open it as a new tab if it is not already open.
-* Open URL in new tab.
-* Open URL in current tab.
-* Execute the JavaScript on the current tab.
-* Open URL as a new tab and then execute the JavaScript.
-* Open specified URL in incognito window.
-* Open same URL as the current tab in incognito window.
+#### 🎯 Shortcut Key Mode (Default)
+- Open the popup and press keys directly - no need to worry about IME (Japanese/English input) state
+- Physical keyboard keys are recognized regardless of your input method
+- Perfect for quick access to frequently used sites
 
-**The Script setting method has been changed in v1.8.0.**
-**Since string script execution is now possible with Manifest V3 in Chrome 135, the setting method has reverted to the pre-v1.6.2 way of setting code directly in the Script.**
-**If you have configured Scripts, please reconfigure them.**
+#### 🔍 Search Mode
+- Click the search box to enter search mode
+- Search in Japanese or English
+- Find bookmarks by title, URL, tags, or aliases
 
-## Privacy Policy
+### Flexible Actions
+- **Jump to URL**: Switch to existing tab or open in new tab
+- **Open in new tab**: Always open in a new tab
+- **Open in current tab**: Replace current page
+- **Execute script**: Run custom JavaScript
+- **Incognito mode**: Open in private browsing
+- **Open multiple URLs**: Open a group of URLs at once
 
-This extension respects your privacy. All data is stored locally in your browser. No data is sent to external servers.
+### Organization
+- 🏷️ **Tags**: Categorize your shortcuts
+- 📝 **Aliases**: Add alternative names for better searchability
+- 🎨 **Customizable layout**: Adjust column count and filter position
+- 📦 **Import/Export**: Backup and transfer your settings
 
-Read our full [Privacy Policy](https://itohenthunagi.github.io/bookmark-shortcutkey/PRIVACY.html) for details.
+## 🚀 Quick Start
 
-## Installation
+### Installation
 
-Install from the following.
+1. Download `BookmarkShortcutkey_v1.8.0.zip`
+2. Open Chrome and go to `chrome://extensions/`
+3. Enable "Developer mode" (top right)
+4. Click "Load unpacked" and select the extracted folder
+5. (Optional) Pin the extension to your toolbar
 
-* [ShortcutKey2URL for Chrome - Chrome Web Store](https://chrome.google.com/webstore/detail/shortcutkey2url-for-chrom/hfohmffbfcobmhfgpkbcjjaijmfplcdg "ShortcutKey2URL for Chrome - Chrome Web Store")
+*Chrome Web Store listing coming soon*
 
-## Setting the startup key
+### Basic Usage
 
-You can change the startup key from Keybord shortcuts in Menu > More tools > Extensions.
+1. **Press the trigger key** (Default: `Ctrl+Period` / `Command+Comma` on Mac)
+2. **Choose your mode:**
+   - **Shortcut Key Mode**: Just press the key (e.g., `G` for Gmail)
+   - **Search Mode**: Click the search box and type
 
-![Screenshot of change startupkey](screenshots/change_startupkey.png)
+### Changing the Trigger Key
 
-## Usage
+1. Go to `chrome://extensions/shortcuts`
+2. Find "Bookmark Shortcutkey"
+3. Set your preferred key combination
 
-When you press the startup key, a list of shortcuts is displayed in the popup.
+## 📖 How to Use
 
-![Screenshot of popup](screenshots/popup.png)
+### Adding Shortcuts
 
-When you enter a key, the corresponding shortcut will be executed.
+#### Method 1: From Current Page
+1. Open the page you want to bookmark
+2. Click the extension icon
+3. Click "Add" at the bottom
+4. Set a key (e.g., `GM` for Gmail)
+5. Choose an action
+6. Save
 
-![Screenshot of running](screenshots/run.gif)
+#### Method 2: From Settings
+1. Right-click the extension icon → "Options"
+2. Click "Add" button
+3. Fill in the details:
+   - **Key**: The shortcut key (e.g., `FB` for Facebook)
+   - **Title**: Display name
+   - **URL**: The website URL
+   - **Action**: What happens when you press the key
+   - **Tags** (optional): For categorization
+   - **Aliases** (optional): Alternative search terms
 
-## Shortcut settings
+#### Method 3: Right-click Menu
+1. Right-click on any page
+2. Select "Add to Bookmark Shortcutkey"
 
-Set the shortcut key on the setting screen.
+### Using Shortcuts
 
-![Screenshot of option](screenshots/option.png)
+**Shortcut Key Mode:**
+```
+1. Press Ctrl+Period (trigger key)
+2. Press your shortcut key (e.g., G for Gmail)
+3. Done! The page opens instantly
+```
 
-### Settings
+**Search Mode:**
+```
+1. Press Ctrl+Period (trigger key)
+2. Click the search box
+3. Type to search (Japanese or English)
+4. Press Enter or click the result
+```
 
-`Column count` specifies the number of columns of the shortcut to be displayed in the popup.  
-The left is when `2` is specified, and the right is when `3` is specified.
+## ⚙️ Settings
 
-![Screenshot of column 2](screenshots/column2.png) ![Screenshot of column 3](screenshots/column3.png)
+### General Settings
 
-If you check `Interactive filter of shortcut keys on the popup` of `Option`, you can interactively narrow down the shortcuts displayed in the popup.
+- **Column Count**: Number of columns in the popup grid (1-5)
+- **Category Filter Position**: Top, Bottom, Left, or Right
+- **Disable Sync**: Keep settings local instead of syncing across devices
 
-![Screenshot of interactive filter](screenshots/interactive.gif)
+### Actions Explained
 
-Check `Disable synchronization of settings` to disable synchronization of settings.  
-This is useful if you browser sync enabled but want to keep shortcut keys separate.
+| Action | Description |
+|--------|-------------|
+| Jump to URL | Switch to existing tab, or open new if not found |
+| Jump to URL (All windows) | Same as above, but searches all windows |
+| Open in new tab | Always open in a new tab |
+| Open in current tab | Replace the current page |
+| Execute script | Run JavaScript on the current page |
+| Open in incognito | Open in a private browsing window |
+| Open current tab in incognito | Copy current page to incognito |
+| Open multiple URLs | Open a group of URLs simultaneously |
 
-### Shortcut Keys
+### Custom Scripts
 
-Click to `Add current page`, you can easily set the current page as a shortcut key.
+You can execute custom JavaScript after opening a URL. For example:
+```javascript
+// Auto-click a button
+document.querySelector('#login-button').click();
+```
 
-![Screenshot of add current page](screenshots/add_current_page.png)
+**Note**: Script feature requires Chrome 135+ with Manifest V3 support.
 
-It is also possible to add from the context menu.
+## 🔒 Privacy
 
-![Screenshot of context menu](screenshots/context_menu.png)
+- ✅ All data stored locally in your browser
+- ✅ No external servers or analytics
+- ✅ No personal data collection
+- ✅ Open source for transparency
 
-![Screenshot of add current page setting](screenshots/add_current_page_setting.png)
+Read our full [Privacy Policy](https://itohenthunagi.github.io/bookmark-shortcutkey/)
 
-Set a key to be assigned as a shortcut key in `Key`. It can be multiple characters.  
-After pressing the startup key, press the key set here to execute the shortcut.
+## 🛠️ Advanced Features
 
-If you check `Hide in shortcut key list displayed in popup`, you can hide it in the shortcut list displayed in the popup.  
-It is only hidden and is effective as a shortcut key.
+### Sync Across Devices
 
-Specify the action as a shortcut key with `Action`.  
-The following can be specified.
+Settings automatically sync via Chrome Sync (if enabled in Chrome). Disable in Options if you want device-specific shortcuts.
 
-* `Jump to url` Jump to URL. For already opened URL, go to that tab. Open it as a new tab if it is not already open.
-* `Jump to url (Including other windows)` Jump to URL. The difference from `Jump to url` is that the target is all windows.
-* `Open url in new tab` Open URL in new tab.
-* `Open url in current tab` Open URL in current tab.
-* `Execute script` Execute JavaScript on current tab.
-* `Open url in incognito window` Open URL in incognito window.
-* `Open current tab in incognito window` Open current tab in incognito window.
+### Import/Export
 
-By entering `Script (optional)` you can execute arbitrary JavaScript after opening the URL.
+Backup or transfer your shortcuts:
+1. Open Options
+2. Click "Export" to download JSON file
+3. Click "Import" to restore from JSON file
 
-### Sync
+### Shortcut Groups
 
-Sync is supported, so shortcut keys and other settings are shared among PCs.  
-However, if the size of the settings is too large to be saved by synchronization, it will be saved without synchronization because there is a limit to the amount of space that can be saved by synchronization.
+Create groups of related shortcuts:
+1. Add a new shortcut
+2. Select "Open multiple URLs" action
+3. Add up to 5 URLs
+4. Choose whether to open in a tab group
 
-### Import / Export
+## 🤝 Contributing
 
-The list of shortcut keys can be exported / imported.  
-This allows you to take backups and perform migrations. (E.g. migration between Firefox and Chrome)
+This is an open-source project. Contributions are welcome!
+
+- **GitHub**: [https://github.com/itohenthunagi/bookmark-shortcutkey](https://github.com/itohenthunagi/bookmark-shortcutkey)
+- **Issues**: [Report bugs or request features](https://github.com/itohenthunagi/bookmark-shortcutkey/issues)
+
+## 📝 License
+
+MIT License - See LICENSE file for details
+
+## 📮 Support
+
+For questions or issues:
+- Open an [Issue on GitHub](https://github.com/itohenthunagi/bookmark-shortcutkey/issues)
+- Check the [Privacy Policy](https://itohenthunagi.github.io/bookmark-shortcutkey/)
+
+---
+
+Made with ❤️ for productivity enthusiasts
