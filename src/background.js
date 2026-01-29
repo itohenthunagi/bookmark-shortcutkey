@@ -21,8 +21,8 @@ const addCurrentPage = () => {
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
-    id: 'add-shortcutkey2url',
-    title: 'Add to ShortcutKey2URL',
+    id: 'add-bookmark-shortcutkey',
+    title: chrome.i18n.getMessage('addToExtension') || 'ブクマショートカットに追加',
     contexts: ['all'],
     type: 'normal',
   });
@@ -33,7 +33,7 @@ chrome.runtime.onStartup.addListener(() => {
 });
 
 chrome.contextMenus.onClicked.addListener(function (info, tab) {
-  if (info.menuItemId == 'add-shortcutkey2url') {
+  if (info.menuItemId == 'add-bookmark-shortcutkey') {
     addCurrentPage();
   }
 });

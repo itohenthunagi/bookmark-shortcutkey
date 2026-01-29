@@ -18,7 +18,7 @@
     "default_icon": {
       "128": "icons/icon128.png"
     },
-    "default_title": "ShortcutKey2URL",
+    "default_title": "ブクマショートカット",
     "default_popup": "popup/popup.html"
   },
   "options_ui": {
@@ -33,5 +33,5 @@
       }
     }
   },
-  "default_locale": "en"
+  "default_locale": "ja"
 }

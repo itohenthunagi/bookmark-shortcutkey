@@ -1,0 +1,58 @@
+# ビルド成果物
+*.zip
+dist/
+build/
+
+# 作業ファイル
+*.xcf
+*.psd
+*.ai
+
+# 一時ファイル・バックアップ
+*_old.*
+*_backup.*
+*.tmp
+*.temp
+*.bak
+
+# OS固有ファイル
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# エディタ/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ログファイル
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 環境変数・機密情報
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*secret*
+*credential*
+*password*
+
+# Node modules（将来的に使う可能性があるため）
+node_modules/
+
+# テスト・デバッグ用ファイル
+test_data/
+debug/
+
+# 個人設定ファイル（Chrome拡張機能のローカルストレージデータなど）
+storage.json
+user_data.json
+
+# Gemini生成の一時画像
+src/icons/Gemini_Generated_Image_*.png

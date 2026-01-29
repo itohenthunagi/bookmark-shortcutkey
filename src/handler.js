@@ -6,11 +6,19 @@ const HandleResult = {
 const MessageName = {
   STARTUP: 'startup',
   KEY_EVENT: 'key_event',
-  CLICK_EVENT: 'click_event'
+  CLICK_EVENT: 'click_event',
+  INCREMENT_USE_COUNT: 'increment_use_count',
+  SEARCH: 'search'
 }
 
 class Handler {
+  constructor() {
+    this.settings = null;
+  }
+
   handle(message, settings) {
+    this.settings = settings;
+
     switch (message.name) {
       case MessageName.STARTUP:
         this._startup();
@@ -25,6 +33,17 @@ class Handler {
       case MessageName.CLICK_EVENT:
         this._doAction(message.value);
         return { result: HandleResult.FINISH };
+
+      case MessageName.INCREMENT_USE_COUNT:
+        // 使用回数を非同期で更新（結果は待たない）
+        settings.incrementUseCount(message.value);
+        return { result: HandleResult.CONTINUE };
+
+      case MessageName.SEARCH:
+        return {
+          result: HandleResult.CONTINUE,
+          searchResults: settings.search(message.value)
+        };
     }
   }
 
@@ -127,6 +146,11 @@ class Handler {
         });
         break;
 
+      case ActionId.OPEN_SHORTCUT_GROUP:
+        // グループショートカットキーを開く
+        this._openShortcutGroup(shortcutKey.groupData);
+        break;
+
       default:
         throw new RangeError('actionId is ' + shortcutKey.action);
     }
@@ -168,6 +192,74 @@ class Handler {
       }
 
       chrome.userScripts.execute({ js: [{ code: script }], target: { tabId }});
+    }
+  }
+
+  async _openInTabGroup(urls, groupTitle) {
+    try {
+      const tabIds = [];
+
+      // 全てのタブを作成
+      for (const url of urls) {
+        const tab = await chrome.tabs.create({ url: url.trim(), active: false });
+        tabIds.push(tab.id);
+      }
+
+      // タブをグループ化
+      if (tabIds.length > 0) {
+        const groupId = await chrome.tabs.group({ tabIds: tabIds });
+
+        // グループにタイトルを設定
+        await chrome.tabGroups.update(groupId, {
+          title: groupTitle || 'まとめて開く',
+          collapsed: false
+        });
+
+        // 最初のタブをアクティブにする
+        if (tabIds.length > 0) {
+          await chrome.tabs.update(tabIds[0], { active: true });
+        }
+      }
+    } catch (error) {
+      console.error('[ERROR] タブグループ作成エラー:', error);
+      // エラーが発生した場合は、既にタブが開かれている可能性があるため、
+      // 再度開かない
+    }
+  }
+
+  _openShortcutGroup(groupData) {
+    if (!groupData || !groupData.shortcutKeyIds || !this.settings) {
+      console.error('グループデータが無効です');
+      return;
+    }
+
+    // グループに含まれるショートカットキーのURLを取得
+    const urls = [];
+    const settingsData = this.settings.data();
+    const allShortcutKeys = settingsData.shortcutKeys || [];
+
+    groupData.shortcutKeyIds.forEach(id => {
+      const shortcut = allShortcutKeys.find(sk => sk.id === id);
+      if (shortcut && shortcut.url) {
+        urls.push(shortcut.url);
+      }
+    });
+
+    if (urls.length === 0) {
+      console.error('グループに有効なURLがありません');
+      return;
+    }
+
+    // タブグループで開くかどうか
+    if (groupData.openInTabGroup) {
+      this._openInTabGroup(urls, groupData.title);
+    } else {
+      // 通常のタブで開く
+      urls.forEach((url, index) => {
+        setTimeout(() => {
+          chrome.tabs.create({ url: url.trim() });
+        }, index * 100);
+      });
     }
   }
 }

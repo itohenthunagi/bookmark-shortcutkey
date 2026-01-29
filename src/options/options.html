@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>ShortcutKey2URL</title>
+    <title>ブクマショートカット</title>
 
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="options.css" rel="stylesheet">
@@ -12,57 +12,112 @@
 
   <body>
 
-    <!-- Begin page content -->
-    <div class="container">
-      <h1>ShortcutKey2URL</h1>
-      <div id="errorMessage" class="alert alert-danger" style="display:none">
-        <a class="close">×</a>
-        <p>There is an input error. Please check the input contents.</p>
+    <!-- ヘッダー -->
+    <div class="header-bar">
+      <div class="container">
+        <div class="header-content">
+          <div class="header-logo">
+            <img src="../icons/icon128.png" alt="" class="header-icon">
+            <h1>ブクマショートカット</h1>
+          </div>
+          <div class="header-actions">
+            <button id="importButton" class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-import" aria-hidden="true"></span>
+              <span data-i18n="import">インポート</span>
+            </button>
+            <button id="exportButton" class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-export" aria-hidden="true"></span>
+              <span data-i18n="export">エクスポート</span>
+            </button>
+            <button id="addButton" class="btn btn-primary" type="button">
+              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              <span data-i18n="add">新規追加</span>
+            </button>
+            <button id="bulkAddButton" class="btn btn-primary" type="button">
+              <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+              一気追加
+            </button>
+            <div class="save-button-group">
+              <button id="saveButton" class="btn btn-success btn-lg" type="button">
+                <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
+                <span data-i18n="save">保存</span>
+              </button>
+              <span class="keyboard-shortcut-hint">Ctrl+S / ⌘+S</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="successMessage" class="alert alert-success" style="display:none">
-        <a class="close">×</a> 
-        <p>Settings saved!</p>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <div class="container main-content">
+
+      <!-- アラート -->
+      <div id="errorMessage" class="alert alert-danger alert-dismissible" style="display:none">
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong><span class="glyphicon glyphicon-exclamation-sign"></span></strong>
+        <span data-i18n="errorMessage">入力エラーがあります。入力内容を確認してください。</span>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">Settings</div>
-        <div class="panel-body">
+      <div id="successMessage" class="alert alert-success alert-dismissible" style="display:none">
+        <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong><span class="glyphicon glyphicon-ok-sign"></span></strong>
+        <span data-i18n="successMessage">設定を保存しました！</span>
+      </div>
+
+      <!-- 設定カード -->
+      <div class="card settings-card">
+        <div class="card-header">
+          <span class="glyphicon glyphicon-cog"></span>
+          <span data-i18n="settings">基本設定</span>
+        </div>
+        <div class="card-body">
           <form class="form-horizontal">
             <div class="form-group">
-              <label class="col-sm-2 control-label">Startup key</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" id="startupKey" disabled>
-                <!-- For Chrome -->
-                <span id="startupKeyHelp" class="help-block">You can change the startup key at <button id="shortcutsButton" class="btn btn-default btn-xs" type="button">Keyboard shortcuts</button> on the extensions screen (Menu > More tools > Extensions).</span>
-                <!---------------->
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">Column count</label>
-              <div class="col-sm-10">
-                <select class="form-control" id="inputColumnCount">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                </select>
-                <span id="columnCountHelp" class="help-block">The number of columns in the shortcut key list displayed on the popup.</span>
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-sm-2 control-label">Option</label>
-              <div class="col-sm-10">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" id="inputFilterOnPopup">Interactive filter of shortcut keys on the popup
-                  </label>
+              <label class="col-sm-3 control-label" data-i18n="startupKey">起動キー</label>
+              <div class="col-sm-9">
+                <div class="input-group" style="max-width: 300px;">
+                  <input type="text" class="form-control input-lg" id="startupKey" disabled>
+                  <span class="input-group-btn">
+                    <button id="shortcutsButton" class="btn btn-primary btn-lg" type="button">
+                      <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                      <span data-i18n="changeShortcut">変更</span>
+                    </button>
+                  </span>
                 </div>
+                <p class="help-block" data-i18n="startupKeyHelpShort">※Chromeのショートカット設定画面で変更できます</p>
               </div>
-              <div class="col-sm-offset-2 col-sm-10">
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" id="inputDisabledSync">Disable synchronization of settings
-                    <span id="disabledSyncHelp" class="help-block">Regardless of this option, if browser sync is disabled, it will not be synchronized.</span>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" data-i18n="columnCount">表示列数</label>
+              <div class="col-sm-9">
+                <select class="form-control" id="inputColumnCount" style="max-width: 150px;">
+                  <option value="1">1列</option>
+                  <option value="2">2列</option>
+                  <option value="3">3列</option>
+                  <option value="4">4列</option>
+                  <option value="5">5列</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">カテゴリーフィルター配置</label>
+              <div class="col-sm-9">
+                <select class="form-control" id="inputCategoryFilterPosition" style="max-width: 150px;">
+                  <option value="top">上部</option>
+                  <option value="bottom">下部</option>
+                  <option value="left">左側</option>
+                  <option value="right">右側</option>
+                </select>
+                <p class="help-block">ポップアップ内でカテゴリーフィルターを表示する位置を選択できます</p>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label" data-i18n="option">オプション</label>
+              <div class="col-sm-9">
+                <div class="checkbox-group">
+                  <label class="checkbox-inline">
+                    <input type="checkbox" id="inputDisabledSync">
+                    <span data-i18n="disabledSync">同期を無効にする</span>
                   </label>
                 </div>
               </div>
@@ -70,91 +125,223 @@
           </form>
         </div>
       </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">Shortcut keys</div>
-        <div class="panel-body">
+
+      <!-- タグ色管理カード -->
+      <div class="card tag-colors-card">
+        <div class="card-header" id="tagColorsToggle" style="cursor: pointer;">
+          <span class="glyphicon glyphicon-tags"></span>
+          <span>タグの色設定</span>
+          <span class="glyphicon glyphicon-chevron-down toggle-icon" style="margin-left: auto; transition: transform 0.2s;"></span>
+        </div>
+        <div class="card-body tag-colors-body" style="display: none;">
+          <div id="tagColorsList"></div>
+          <div id="tagColorsEmpty" class="empty-state" style="display:none;">
+            <span class="glyphicon glyphicon-tag"></span>
+            <p>タグがまだありません。ショートカットにタグを追加すると、ここで色を設定できます。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- まとめて開く設定カード -->
+      <div class="card group-shortcuts-card">
+        <div class="card-header">
+          <span class="glyphicon glyphicon-folder-open"></span>
+          <span>まとめて開く設定</span>
+        </div>
+        <div class="card-body">
+          <p class="help-block">複数のショートカットキーをグループ化して、一度に開くことができます。</p>
+          <button id="addGroupButton" class="btn btn-success" type="button">
+            <span class="glyphicon glyphicon-plus"></span> グループを追加
+          </button>
+          <div id="shortcutGroups" style="margin-top: 20px;"></div>
+          <div id="groupsEmptyState" class="empty-state" style="display:none;">
+            <span class="glyphicon glyphicon-folder-open"></span>
+            <p>グループがまだありません</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ショートカットキーカード -->
+      <div class="card shortcuts-card">
+        <div class="card-header">
+          <span class="glyphicon glyphicon-bookmark"></span>
+          <span data-i18n="shortcutKeys">ショートカットキー</span>
+        </div>
+        <div class="card-body">
           <div id="shortcutKeys"></div>
-          <div class="pull-right">
-            <button id="importButton" class="btn btn-info btn-sm" type="button"><span class="glyphicon glyphicon-import" aria-hidden="true"></span> Import</button>
-            <button id="exportButton" class="btn btn-info btn-sm" type="button"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Export</button>
-            &nbsp;
-            <button id="addButton" class="btn btn-info btn-sm" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add</button>
+          <div id="emptyState" class="empty-state">
+            <span class="glyphicon glyphicon-inbox"></span>
+            <p>ショートカットキーがありません</p>
+            <button id="addButtonEmpty" class="btn btn-primary" type="button">
+              <span class="glyphicon glyphicon-plus"></span> 最初のショートカットを追加
+            </button>
           </div>
         </div>
       </div>
-      <div class="pull-right">
-        <button id="saveButton" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-save" aria-hidden="true"></span> Save</button>
-      </div>
+
     </div>
-    <div id="template" class="panel panel-default" style="display: none">
-      <div class="panel-heading">
-        <div class="panel-title">
-          <a class="summary" role="button">New shortcut key</a>
+
+    <!-- テンプレート -->
+    <div id="template" class="shortcut-item" style="display: none">
+      <div class="shortcut-header">
+        <div class="shortcut-summary">
+          <a class="summary" role="button">
+            <span class="key-badge"></span>
+            <span class="title-text">新しいショートカット</span>
+          </a>
           <span class="glyphicon glyphicon-exclamation-sign alert-icon" aria-hidden="true" style="display: none"></span>
-          <div class="pull-right">
-            <button type="button" class="btn btn-xs btn-default remove" aria-label="Remove">
-              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Remove
-            </button>
-            <button type="button" class="btn btn-xs btn-default close-detail" aria-label="close">
-              &nbsp;<span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>&nbsp;
-            </button>
-            <button type="button" class="btn btn-xs btn-default open-detail" aria-label="open" style="display:none">
-              &nbsp;<span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>&nbsp;
-            </button>
-          </div>
+        </div>
+        <div class="shortcut-actions">
+          <button type="button" class="btn btn-xs btn-danger remove" aria-label="Remove">
+            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="btn btn-xs btn-default toggle-detail close-detail" aria-label="close">
+            <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
+          </button>
+          <button type="button" class="btn btn-xs btn-default toggle-detail open-detail" aria-label="open" style="display:none">
+            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+          </button>
         </div>
       </div>
-      <div class="panel-body">
+      <div class="shortcut-body panel-body">
         <form class="form-horizontal">
-          <div class="form-group form-group-sm">
-            <label class="col-sm-2 control-label">Key</label>
-            <div class="col-sm-3">
-              <input type="text" class="form-control" name="key">
-              <span class="help-block duplicate-message" style="display:none;"></span>
-            </div>
-            <div class="col-sm-7">
-              <div class="checkbox">
-                <label class="ignore-has-error">
-                  <input type="checkbox" name="hideOnPopup">Hide in shortcut key list displayed in popup
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
+                  <span data-i18n="key">キー</span>
+                  <span class="tooltip-icon" data-tooltip-key="tooltip_key">?</span>
                 </label>
+                <div class="col-sm-8">
+                  <div class="input-group">
+                    <input type="text" class="form-control key-input" name="key" placeholder="例: GM">
+                    <span class="input-group-addon">
+                      <label class="checkbox-inline hide-checkbox">
+                        <input type="checkbox" name="hideOnPopup">
+                        <span class="tooltip-icon" data-tooltip-key="tooltip_hideOnPopup">非表示</span>
+                      </label>
+                    </span>
+                  </div>
+                  <span class="help-block duplicate-message" style="display:none;"></span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
+                  <span data-i18n="title">タイトル</span>
+                  <span class="tooltip-icon" data-tooltip-key="tooltip_title">?</span>
+                </label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="title" placeholder="例: Gmail">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
+                  <span data-i18n="action">アクション</span>
+                  <span class="tooltip-icon" data-tooltip-key="tooltip_action">?</span>
+                </label>
+                <div class="col-sm-8">
+                  <select class="form-control" name="action">
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
+                  所属グループ
+                </label>
+                <div class="col-sm-8">
+                  <div class="shortcut-groups-list">
+                    <!-- グループリストがここに動的に追加されます -->
+                  </div>
+                  <p class="help-block">このショートカットが所属するグループを選択できます</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
+                  <span data-i18n="aliases">エイリアス</span>
+                  <span class="tooltip-icon" data-tooltip-key="tooltip_aliases">?</span>
+                </label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" name="aliases" placeholder="ジーメール, メール">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-4 control-label">
+                  <span data-i18n="tags">タグ</span>
+                  <span class="tooltip-icon" data-tooltip-key="tooltip_tags">?</span>
+                </label>
+                <div class="col-sm-8">
+                  <div class="tags-input-wrapper">
+                    <input type="text" class="form-control tags-input" name="tags" placeholder="仕事, 連絡" autocomplete="off">
+                    <div class="tags-suggestions" style="display: none;"></div>
+                  </div>
+                  <div class="tags-preview"></div>
+                  <p class="help-block">既存のタグは色付き、新規タグはグレーで表示されます。カンマ区切りで複数入力可能</p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="form-group form-group-sm">
-            <label class="col-sm-2 control-label">Action</label>
-            <div class="col-sm-6">
-              <select class="form-control" name="action">
-                <option value="jump">jump</option>
-                <option value="current">current</option>
-                <option value="new">new</option>
-              </select>
+          <div class="form-group url-group">
+            <label class="col-sm-2 control-label">
+              URL
+              <span class="tooltip-icon" data-tooltip-key="tooltip_url">?</span>
+            </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="url" placeholder="https://...">
             </div>
           </div>
-          <div class="form-group form-group-sm">
-            <label class="col-sm-2 control-label">Title</label>
+          <div class="form-group script-group">
+            <label class="col-sm-2 control-label">
+              <span data-i18n="script">スクリプト</span>
+              <span class="optional" data-i18n="optional">（任意）</span>
+              <span class="tooltip-icon" data-tooltip-key="tooltip_script">?</span>
+            </label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" name="title">
-            </div>
-          </div>
-          <div class="form-group form-group-sm">
-            <label class="col-sm-2 control-label">URL</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" name="url">
-            </div>
-          </div>
-          <div class="form-group form-group-sm">
-            <label class="col-sm-2 control-label">Script<span class="optional">(optional)</span></label>
-            <div class="col-sm-10">
-              <textarea type="text" class="form-control" name="script"></textarea>
+              <textarea class="form-control" name="script" rows="3" placeholder="// JavaScript code"></textarea>
             </div>
           </div>
         </form>
       </div>
     </div>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- ツールチップ -->
+    <div id="customTooltip" class="custom-tooltip"></div>
+
+    <!-- 一気追加モーダル -->
+    <div id="bulkAddModal" class="modal-overlay" style="display: none;">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>URLを一気に追加</h3>
+          <button type="button" class="modal-close" aria-label="Close">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label>URLリスト</label>
+            <textarea id="bulkUrlInput" class="form-control" rows="10" placeholder="URLを入力してください（カンマ区切りまたは改行区切り）&#10;&#10;例:&#10;https://github.com&#10;https://twitter.com, https://facebook.com&#10;https://google.com"></textarea>
+            <p class="help-block">
+              URLをカンマ区切りまたは改行で入力してください。各URLに対してショートカットキーが自動生成されます。
+            </p>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="bulkAutoOpen" checked>
+              追加後に各項目を自動的に開く
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default modal-cancel">キャンセル</button>
+          <button type="button" class="btn btn-primary" id="bulkAddConfirm">
+            <span class="glyphicon glyphicon-plus"></span> 追加
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
     <script src="lib/jquery.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="../actions.js"></script>

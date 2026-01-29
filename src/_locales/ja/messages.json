@@ -1,4 +1,182 @@
 {
-  "extensionName": { "message": "ShortcutKey2URL for Chrome" },
-  "extensionDescription": { "message": "ShortcutKey2URLは、頻繁にアクセスするサイトへ簡単にアクセスするための手段(ショートカットキー)を提供します。" }
+  "extensionName": {
+    "message": "ブクマショートカット"
+  },
+  "extensionDescription": {
+    "message": "頻繁にアクセスするサイトへショートカットキーや検索で素早くアクセスできます。"
+  },
+  "searchPlaceholder": {
+    "message": "検索 / キー入力..."
+  },
+  "noResults": {
+    "message": "結果が見つかりません"
+  },
+  "addCurrentPage": {
+    "message": "現在のページを追加"
+  },
+  "options": {
+    "message": "設定"
+  },
+  "settings": {
+    "message": "設定"
+  },
+  "startupKey": {
+    "message": "起動キー"
+  },
+  "startupKeyHelp": {
+    "message": "起動キーは拡張機能画面（メニュー > その他のツール > 拡張機能）のキーボードショートカットで変更できます。"
+  },
+  "startupKeyHelpShort": {
+    "message": "※Chromeのショートカット設定画面で変更できます"
+  },
+  "changeShortcut": {
+    "message": "変更する"
+  },
+  "keyboardShortcuts": {
+    "message": "キーボードショートカット"
+  },
+  "columnCount": {
+    "message": "列数"
+  },
+  "columnCountHelp": {
+    "message": "ポップアップに表示されるショートカットキーリストの列数です。"
+  },
+  "option": {
+    "message": "オプション"
+  },
+  "filterOnPopup": {
+    "message": "ポップアップでショートカットキーをインタラクティブにフィルタする"
+  },
+  "disabledSync": {
+    "message": "設定の同期を無効にする"
+  },
+  "disabledSyncHelp": {
+    "message": "このオプションに関係なく、ブラウザの同期が無効になっている場合は同期されません。"
+  },
+  "shortcutKeys": {
+    "message": "ショートカットキー"
+  },
+  "import": {
+    "message": "インポート"
+  },
+  "export": {
+    "message": "エクスポート"
+  },
+  "add": {
+    "message": "追加"
+  },
+  "save": {
+    "message": "保存"
+  },
+  "remove": {
+    "message": "削除"
+  },
+  "newShortcutKey": {
+    "message": "新しいショートカットキー"
+  },
+  "key": {
+    "message": "キー"
+  },
+  "hideOnPopup": {
+    "message": "ポップアップのショートカットキーリストに表示しない"
+  },
+  "action": {
+    "message": "アクション"
+  },
+  "title": {
+    "message": "タイトル"
+  },
+  "aliases": {
+    "message": "エイリアス"
+  },
+  "aliasesHelp": {
+    "message": "検索時に使用される別名です。カンマ区切りで複数指定できます。"
+  },
+  "aliasesPlaceholder": {
+    "message": "カンマ区切りで入力（例: ジーメール, メール）"
+  },
+  "tags": {
+    "message": "タグ"
+  },
+  "tagsHelp": {
+    "message": "分類用のタグです。検索でも使用されます。"
+  },
+  "tagsPlaceholder": {
+    "message": "カンマ区切りで入力（例: 仕事, 連絡）"
+  },
+  "script": {
+    "message": "スクリプト"
+  },
+  "optional": {
+    "message": "（任意）"
+  },
+  "errorMessage": {
+    "message": "入力エラーがあります。入力内容を確認してください。"
+  },
+  "successMessage": {
+    "message": "設定を保存しました！"
+  },
+  "duplicateKeyMessage": {
+    "message": "他のショートカットキー({keys})と重複しています。"
+  },
+  "importError": {
+    "message": "無効な形式のためインポートできませんでした。"
+  },
+  "syncError": {
+    "message": "同期ストレージへの保存に失敗したため、同期が無効になりました。\nショートカットキーが多すぎると、同期ストレージへの保存に失敗します。"
+  },
+  "action_3": {
+    "message": "URLにジャンプ"
+  },
+  "action_7": {
+    "message": "URLにジャンプ（他のウィンドウを含む）"
+  },
+  "action_1": {
+    "message": "新しいタブでURLを開く"
+  },
+  "action_2": {
+    "message": "現在のタブでURLを開く"
+  },
+  "action_4": {
+    "message": "スクリプトを実行"
+  },
+  "action_5": {
+    "message": "シークレットウィンドウでURLを開く"
+  },
+  "action_6": {
+    "message": "現在のタブをシークレットウィンドウで開く"
+  },
+  "action_8": {
+    "message": "複数URLをまとめて開く"
+  },
+  "addToExtension": {
+    "message": "ブクマショートカットに追加"
+  },
+  "tooltip_key": {
+    "message": "ポップアップでこのキーを入力すると、このショートカットが実行されます。例: GM と入力すると Gmail を開く"
+  },
+  "tooltip_action": {
+    "message": "ショートカット実行時の動作を選択します。既存タブにジャンプ、新規タブで開く、スクリプト実行などが選べます"
+  },
+  "tooltip_title": {
+    "message": "ポップアップや設定画面に表示される名前です"
+  },
+  "tooltip_aliases": {
+    "message": "検索時に使える別名です。日本語や略称を登録すると、検索でヒットしやすくなります"
+  },
+  "tooltip_tags": {
+    "message": "分類用のタグです。「仕事」「SNS」など、カテゴリを設定すると検索や整理に便利です"
+  },
+  "tooltip_url": {
+    "message": "アクセス先のURLです。https:// から始まる完全なURLを入力してください"
+  },
+  "tooltip_script": {
+    "message": "ページ読み込み後に実行するJavaScriptです。ログイン後の自動操作などに使えます"
+  },
+  "tooltip_hideOnPopup": {
+    "message": "チェックすると、ポップアップの一覧には表示されませんが、キー入力では実行できます"
+  },
+  "tooltip_urls": {
+    "message": "まとめて開きたいURLを最大5つまで登録できます。すべて新しいタブで同時に開きます"
+  }
 }
