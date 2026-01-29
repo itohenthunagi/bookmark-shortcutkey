@@ -1,4 +1,4 @@
-# Bookmark Shortcutkey
+# Bookmark Shortcuter
 
 A Chrome extension that lets you quickly access your favorite websites using keyboard shortcuts. Features two modes: **Shortcut Key Mode** for instant access and **Search Mode** for flexible searching.
 
@@ -37,7 +37,7 @@ A Chrome extension that lets you quickly access your favorite websites using key
 
 ### Installation
 
-1. Download `BookmarkShortcutkey_v1.8.0.zip`
+1. Download `BookmarkShortcuter_v1.8.0.zip`
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable "Developer mode" (top right)
 4. Click "Load unpacked" and select the extracted folder
@@ -55,7 +55,7 @@ A Chrome extension that lets you quickly access your favorite websites using key
 ### Changing the Trigger Key
 
 1. Go to `chrome://extensions/shortcuts`
-2. Find "Bookmark Shortcutkey"
+2. Find "Bookmark Shortcuter"
 3. Set your preferred key combination
 
 ## 📖 How to Use
@@ -83,7 +83,7 @@ A Chrome extension that lets you quickly access your favorite websites using key
 
 #### Method 3: Right-click Menu
 1. Right-click on any page
-2. Select "Add to Bookmark Shortcutkey"
+2. Select "Add to Bookmark Shortcuter"
 
 ### Using Shortcuts
 

@@ -1,4 +1,4 @@
-# ブクマショートカット (Bookmark Shortcutkey)
+# ブクマショートカット (Bookmark Shortcuter)
 
 キーボードショートカットでお気に入りのWebサイトに素早くアクセスできるChrome拡張機能です。**ショートカットキーモード**と**検索モード**の2つのモードを搭載。
 
@@ -37,7 +37,7 @@
 
 ### インストール
 
-1. `BookmarkShortcutkey_v1.8.0.zip` をダウンロード
+1. `BookmarkShortcuter_v1.8.0.zip` をダウンロード
 2. Chromeで `chrome://extensions/` を開く
 3. 右上の「デベロッパーモード」を有効化
 4. 「パッケージ化されていない拡張機能を読み込む」をクリックして、解凍したフォルダを選択
@@ -55,7 +55,7 @@
 ### トリガーキーの変更
 
 1. `chrome://extensions/shortcuts` を開く
-2. 「Bookmark Shortcutkey」を見つける
+2. 「Bookmark Shortcuter」を見つける
 3. 好みのキーの組み合わせを設定
 
 ## 📖 使い方
