@@ -1,0 +1,182 @@
+{
+  "extensionName": {
+    "message": "Bookmarks Shortcut"
+  },
+  "extensionDescription": {
+    "message": "Quickly access your favorite sites with shortcut keys and search."
+  },
+  "searchPlaceholder": {
+    "message": "Search / Key input..."
+  },
+  "noResults": {
+    "message": "No results found"
+  },
+  "addCurrentPage": {
+    "message": "Add current page"
+  },
+  "options": {
+    "message": "Options"
+  },
+  "settings": {
+    "message": "Settings"
+  },
+  "startupKey": {
+    "message": "Startup key"
+  },
+  "startupKeyHelp": {
+    "message": "You can change the startup key at Keyboard shortcuts on the extensions screen (Menu > More tools > Extensions)."
+  },
+  "startupKeyHelpShort": {
+    "message": "* Can be changed in Chrome's shortcut settings"
+  },
+  "changeShortcut": {
+    "message": "Change"
+  },
+  "keyboardShortcuts": {
+    "message": "Keyboard shortcuts"
+  },
+  "columnCount": {
+    "message": "Column count"
+  },
+  "columnCountHelp": {
+    "message": "The number of columns in the shortcut key list displayed on the popup."
+  },
+  "option": {
+    "message": "Option"
+  },
+  "filterOnPopup": {
+    "message": "Interactive filter of shortcut keys on the popup"
+  },
+  "disabledSync": {
+    "message": "Disable synchronization of settings"
+  },
+  "disabledSyncHelp": {
+    "message": "Regardless of this option, if browser sync is disabled, it will not be synchronized."
+  },
+  "shortcutKeys": {
+    "message": "Shortcut keys"
+  },
+  "import": {
+    "message": "Import"
+  },
+  "export": {
+    "message": "Export"
+  },
+  "add": {
+    "message": "Add"
+  },
+  "save": {
+    "message": "Save"
+  },
+  "remove": {
+    "message": "Remove"
+  },
+  "newShortcutKey": {
+    "message": "New shortcut key"
+  },
+  "key": {
+    "message": "Key"
+  },
+  "hideOnPopup": {
+    "message": "Hide in shortcut key list displayed in popup"
+  },
+  "action": {
+    "message": "Action"
+  },
+  "title": {
+    "message": "Title"
+  },
+  "aliases": {
+    "message": "Aliases"
+  },
+  "aliasesHelp": {
+    "message": "Alternative names for searching. Separate multiple entries with commas."
+  },
+  "aliasesPlaceholder": {
+    "message": "Comma separated (e.g. gmail, email)"
+  },
+  "tags": {
+    "message": "Tags"
+  },
+  "tagsHelp": {
+    "message": "Tags for categorization. Also used in search."
+  },
+  "tagsPlaceholder": {
+    "message": "Comma separated (e.g. work, communication)"
+  },
+  "script": {
+    "message": "Script"
+  },
+  "optional": {
+    "message": "(optional)"
+  },
+  "errorMessage": {
+    "message": "There is an input error. Please check the input contents."
+  },
+  "successMessage": {
+    "message": "Settings saved!"
+  },
+  "duplicateKeyMessage": {
+    "message": "It duplicated with other shortcut keys({keys})."
+  },
+  "importError": {
+    "message": "Could not import due to invalid format."
+  },
+  "syncError": {
+    "message": "Synchronization was disabled because it could not be saved to sync storage.\nIf there are too many shortcut keys, saving to sync storage will fail."
+  },
+  "action_3": {
+    "message": "Jump to url"
+  },
+  "action_7": {
+    "message": "Jump to url (Including other windows)"
+  },
+  "action_1": {
+    "message": "Open url in new tab"
+  },
+  "action_2": {
+    "message": "Open url in current tab"
+  },
+  "action_4": {
+    "message": "Execute script"
+  },
+  "action_5": {
+    "message": "Open url in incognito window"
+  },
+  "action_6": {
+    "message": "Open current tab in incognito window"
+  },
+  "action_8": {
+    "message": "Open multiple URLs at once"
+  },
+  "addToExtension": {
+    "message": "Add to Bookmarks Shortcut"
+  },
+  "tooltip_key": {
+    "message": "Type this key in the popup to execute this shortcut. Example: Type GM to open Gmail"
+  },
+  "tooltip_action": {
+    "message": "Select what happens when the shortcut is executed. Jump to existing tab, open in new tab, execute script, etc."
+  },
+  "tooltip_title": {
+    "message": "The name displayed in the popup and settings screen"
+  },
+  "tooltip_aliases": {
+    "message": "Alternative names for searching. Adding Japanese or abbreviations makes it easier to find"
+  },
+  "tooltip_tags": {
+    "message": "Tags for categorization. Setting categories like 'Work' or 'SNS' helps with search and organization"
+  },
+  "tooltip_url": {
+    "message": "The destination URL. Enter the complete URL starting with https://"
+  },
+  "tooltip_script": {
+    "message": "JavaScript to execute after page load. Useful for automation after login"
+  },
+  "tooltip_hideOnPopup": {
+    "message": "When checked, this won't appear in the popup list, but can still be executed by key input"
+  },
+  "tooltip_urls": {
+    "message": "Register up to 5 URLs to open at once. All will open in new tabs simultaneously"
+  }
+}
