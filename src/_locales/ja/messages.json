@@ -1,6 +1,6 @@
 {
   "extensionName": {
-    "message": "ブクマショートカット"
+    "message": "Bookmark Shortcuter"
   },
   "extensionDescription": {
     "message": "頻繁にアクセスするサイトへショートカットキーや検索で素早くアクセスできます。"
@@ -150,7 +150,7 @@
     "message": "複数URLをまとめて開く"
   },
   "addToExtension": {
-    "message": "ブクマショートカットに追加"
+    "message": "Bookmark Shortcuterに追加"
   },
   "tooltip_key": {
     "message": "ポップアップでこのキーを入力すると、このショートカットが実行されます。例: GM と入力すると Gmail を開く"
