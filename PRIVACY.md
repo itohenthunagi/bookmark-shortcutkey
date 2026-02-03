@@ -48,10 +48,6 @@ The Extension requires the following permissions:
 
 These permissions are used **only** for the functionality described above and never for data collection or tracking.
 
-### Open Source
-The Extension is open source. You can review the complete source code at:
-https://github.com/itohenthunagi/bookmark-shortcutkey
-
 ### Changes to This Policy
 We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last updated" date.
 
@@ -103,10 +99,6 @@ https://github.com/itohenthunagi/bookmark-shortcutkey/issues
 - **`host_permissions: <all_urls>`**: 指定したURLにアクセスし、それらのページでスクリプトを実行するため
 
 これらの権限は上記の機能実現**のみ**に使用され、データ収集やトラッキングには一切使用されません。
-
-### オープンソース
-本拡張機能はオープンソースです。完全なソースコードは以下で確認できます：
-https://github.com/itohenthunagi/bookmark-shortcutkey
 
 ### ポリシーの変更
 このプライバシーポリシーは随時更新される可能性があります。変更があった場合は、このページに更新日とともに掲載されます。
