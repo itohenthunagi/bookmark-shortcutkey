@@ -51,10 +51,6 @@ These permissions are used **only** for the functionality described above and ne
 ### Changes to This Policy
 We may update this privacy policy from time to time. Any changes will be posted on this page with an updated "Last updated" date.
 
-### Contact
-For questions or concerns about this privacy policy, please open an issue on our GitHub repository:
-https://github.com/itohenthunagi/bookmark-shortcutkey/issues
-
 ---
 
 ## 日本語
@@ -102,7 +98,3 @@ https://github.com/itohenthunagi/bookmark-shortcutkey/issues
 
 ### ポリシーの変更
 このプライバシーポリシーは随時更新される可能性があります。変更があった場合は、このページに更新日とともに掲載されます。
-
-### お問い合わせ
-このプライバシーポリシーに関する質問や懸念がある場合は、GitHubリポジトリでIssueを作成してください：
-https://github.com/itohenthunagi/bookmark-shortcutkey/issues
