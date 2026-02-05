@@ -2,7 +2,7 @@
 
 キーボードショートカットでお気に入りのWebサイトに素早くアクセスできるChrome拡張機能です。**ショートカットキーモード**と**検索モード**の2つのモードを搭載。
 
-![Version](https://img.shields.io/badge/version-1.8.0-blue)
+![Version](https://img.shields.io/badge/version-1.9.2-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## ✨ 主な機能
@@ -37,7 +37,7 @@
 
 ### インストール
 
-1. `BookmarkShortcuter_v1.8.0.zip` をダウンロード
+1. `BookmarkShortcuter_v1.9.2.zip` をダウンロード
 2. Chromeで `chrome://extensions/` を開く
 3. 右上の「デベロッパーモード」を有効化
 4. 「パッケージ化されていない拡張機能を読み込む」をクリックして、解凍したフォルダを選択

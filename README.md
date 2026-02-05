@@ -2,7 +2,7 @@
 
 A Chrome extension that lets you quickly access your favorite websites using keyboard shortcuts. Features two modes: **Shortcut Key Mode** for instant access and **Search Mode** for flexible searching.
 
-![Version](https://img.shields.io/badge/version-1.8.0-blue)
+![Version](https://img.shields.io/badge/version-1.9.2-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 ## ✨ Features
@@ -37,7 +37,7 @@ A Chrome extension that lets you quickly access your favorite websites using key
 
 ### Installation
 
-1. Download `BookmarkShortcuter_v1.8.0.zip`
+1. Download `BookmarkShortcuter_v1.9.2.zip`
 2. Open Chrome and go to `chrome://extensions/`
 3. Enable "Developer mode" (top right)
 4. Click "Load unpacked" and select the extracted folder
